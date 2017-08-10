@@ -1,2 +1,43 @@
-<h1>Posts#index</h1>
+<h1>All posts by <%= current_user.name %></h1>
 <p>Find me in app/views/posts/index.html.erb</p>
+
+<%#= @all_posts.inspect %>
+
+<%= form_for @new_post do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :content %>
+  <%= f.text_field :content %>
+
+  <%= f.hidden_field :user_id %>
+
+    <%= f.submit %>
+<% end %>
+
+<%#= @new_post.inspect %>
+
+
+<% @all_posts.each_with_index do |post, index| %>
+<% if post.id %>
+<h3>
+  <li>
+  <%= post.title %>
+  </li>
+</h3>
+
+<p>
+  <%= post.content %>
+</p>
+<%= link_to "View", post_path(post) %>
+<%= link_to "Delete", post_path(post), method: :delete %>
+<%= link_to "Edit", edit_post_path(post)%>
+
+<% end %>
+<% end %>
+
+
+<div class="">
+  <%= link_to "Home", "/", class: "btn btn-primary" %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+  </div>

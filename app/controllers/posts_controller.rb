@@ -1,13 +1,16 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, only: [:new, :edit]
+  before_action :authenticate_user!
+  # before_action :authenticate_user!, only: [:new, :edit]
   # before_action :authenticate_user!, except: [:new, :edit]
 
   def index
-    render html: "show all posts by #{current_user.name}"
+    @all_posts = current_user.posts
+    # @new_post = Post.new #post is not tagged to user
+    @new_post = current_user.posts.new
   end
 
   def show
-    render html: 'show all posts'
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -15,7 +18,42 @@ class PostsController < ApplicationController
   end
 
   def edit
-    render html: 'show form to edit post'
+    @edit_post = Post.find(params[:id])
+  end
+
+  def create
+    creating_post = post_update_params
+    # render json: params[:post]
+
+    Post.create(creating_post)
+    redirect_to posts_path
+
+  end
+
+  def destroy
+    Post.destroy(params[:id])
+
+    # deleted_post = Post.find(params[:id])
+    # deleted_post.destroy
+    redirect_to posts_path
+  end
+
+  def update
+    updated_post = Post.find(params[:id])
+
+    updated_post.update(post_update_params)
+
+    redirect_to posts_path
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :content, :user_id)
+  end
+
+  def post_update_params
+    params.require(:post).permit(:title, :content)
   end
 
 end
