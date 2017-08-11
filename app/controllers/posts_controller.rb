@@ -4,8 +4,12 @@ class PostsController < ApplicationController
   # before_action :authenticate_user!, except: [:new, :edit]
 
   def index
+    news_url = 'https://newsapi.org/v1/articles?source=mtv-news&sortBy=top&apiKey=ba8b42abfab743f3bfe37fe0f9df3557'
+    response = HTTParty.get(news_url)
+    @news_data = response
+
     @all_posts = current_user.posts
-    # @new_post = Post.new #post is not tagged to user
+    # @new_post = Post.new  #post is not tagged to user
     @new_post = current_user.posts.new
   end
 
