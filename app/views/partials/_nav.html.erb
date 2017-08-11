@@ -10,8 +10,6 @@
       <%= link_to "Posts", posts_path %>
 
     </li>
-  </ul>
-</nav>
 
 <% if current_user %>
   <!-- true -->
@@ -22,3 +20,6 @@
   <%= link_to "Login", new_user_session_path %>
   <%= link_to "Register", new_user_registration_path %>
 <% end %>
+
+</ul>
+</nav>

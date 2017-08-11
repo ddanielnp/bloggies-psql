@@ -22,16 +22,20 @@
 #   )
 # end
 
-5.times do |i|
-  Comment.create(
-  content: "Lorem Ipsum",
-  post_id: 20
-  )
-end
+# 5.times do |i|
+#   Comment.create(
+#   content: "Lorem Ipsum",
+#   post_id: 20
+#   )
+# end
+#
+# 5.times do |i|
+#   Comment.create(
+#   content: "Lorem",
+#   post_id: 21
+#   )
+# end
 
 5.times do |i|
-  Comment.create(
-  content: "Lorem",
-  post_id: 21
-  )
+  Tag.create(name: "Tag #{i + 1}")
 end

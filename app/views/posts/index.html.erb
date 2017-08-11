@@ -1,9 +1,7 @@
 <% provide(:title, "Bloggies || Current user #{current_user.name}") %>
 
-
-<h1>All posts by <%= current_user.name %></h1>
-
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>All posts by
+  <%= current_user.name %></h1>
 
 <% @news_data["articles"].each do |article| %>
 <ul>
@@ -11,7 +9,7 @@
     <h3><%= article["title"] %></h3>
     <%= image_tag article["urlToImage"], width: 600 %>
     <h4><%= article["description"] %></h4>
-    <a href="<%= article["url"] %>">Read more...</a>
+    <a href="<%= article[" url"] %>">Read more...</a>
   </li>
 </ul>
 <% end %>
@@ -19,15 +17,15 @@
 <h1>Create a post</h1>
 
 <%= form_for @new_post do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
+<%= f.label :title %>
+<%= f.text_field :title %>
 
-  <%= f.label :content %>
-  <%= f.text_field :content %>
+<%= f.label :content %>
+<%= f.text_field :content %>
 
-  <%= f.hidden_field :user_id %>
+<%= f.hidden_field :user_id %>
 
-    <%= f.submit %>
+<%= f.submit %>
 <% end %>
 
 <%#= @new_post.inspect %>
@@ -35,13 +33,13 @@
 <% @all_posts.each_with_index do |post, index| %>
 <% if post.id %>
 <h3>
-  <li>
+<li>
   <%= post.title %>
-  </li>
+</li>
 </h3>
 
 <p>
-  <%= post.content %>
+<%= post.content %>
 </p>
 <%= link_to "View", post_path(post) %>
 <%= link_to "Delete", post_path(post), method: :delete %>
@@ -50,7 +48,4 @@
 <% end %>
 <% end %>
 
-
-<div class="">
-
-  </div>
+<div class=""></div>

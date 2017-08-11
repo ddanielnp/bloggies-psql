@@ -26,7 +26,7 @@ class PostsController < ApplicationController
   end
 
   def create
-    creating_post = post_update_params
+    creating_post = post_params
     # render json: params[:post]
 
   Post.create(creating_post)
