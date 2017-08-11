@@ -7,6 +7,7 @@
     <h3><%= article["title"] %></h3>
     <%= image_tag article["urlToImage"], width: 600 %>
     <h4><%= article["description"] %></h4>
+    <a href="<%= article["url"] %>">Read more...</a>
   </li>
 </ul>
 <% end %>

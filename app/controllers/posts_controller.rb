@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # before_action :authenticate_user!, except: [:new, :edit]
 
   def index
-    news_url = 'https://newsapi.org/v1/articles?source=mtv-news&sortBy=top&apiKey=ba8b42abfab743f3bfe37fe0f9df3557'
+    news_url = 'https://newsapi.org/v1/articles?source=national-geographic&sortBy=top&apiKey=ba8b42abfab743f3bfe37fe0f9df3557'
     response = HTTParty.get(news_url)
     @news_data = response
 
