@@ -1,15 +1,9 @@
-<h1>Static#home</h1>
+<% provide(:title, 'Homepage') %>
+
 <p>Find me in app/views/static/home.html.erb</p>
 
 <!-- <%= current_user.inspect %> -->
 
-<% if current_user %>
-  <!-- true -->
-,
-<% else %>
-  <!-- false -->
-  <%= link_to "Login", new_user_session_path %>
-  <%= link_to "Register", new_user_registration_path %>
-<% end %>
+
 
 <%= link_to "Posts", "/posts" %>

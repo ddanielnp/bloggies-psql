@@ -29,7 +29,7 @@ class PostsController < ApplicationController
     creating_post = post_update_params
     # render json: params[:post]
 
-    Post.create(creating_post)
+  Post.create(creating_post)
     redirect_to posts_path
 
   end

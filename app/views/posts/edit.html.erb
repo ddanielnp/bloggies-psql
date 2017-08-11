@@ -1,5 +1,6 @@
-<h1>Edit post <%= @edit_post.id %></h1>
-<%= @edit_post.inspect %>
+<% provide(:title, "Edit Post: #{@edit_post.id}") %>
+
+<small>inspect: <%= @edit_post.inspect %></small>
 
 <%= form_for @edit_post do |f| %>
   <%= f.label :title %>
